@@ -16,6 +16,10 @@ func toHtml(room: Room): VNode =
       else: text "不良"
     p(class = "ppm"): text $room.concentration & "ppm / 1000ppm"
 
+func makeHeader(): VNode =
+  buildHtml(tdiv(class = "header")):
+    p(class = "title"): text "換気状況測定中"
+
 var rooms = @[
   Room(name: "大ホール", concentration: 600),
   Room(name: "中ホール", concentration: 600),
@@ -25,6 +29,7 @@ var rooms = @[
 
 proc createDom(): VNode =
   buildHtml(tdiv):
+    makeHeader()
     tdiv:
       for room in rooms:
         room.toHtml

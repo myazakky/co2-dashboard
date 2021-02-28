@@ -2,6 +2,20 @@ body {
   margin: 0;
 }
 
+.header {
+  width: 100%;
+  margin: 0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: solid 2px #e2e2e2;
+}
+
+.title {
+  text-align: center;
+  font-size: 50px;
+  margin: 0;
+}
+
 .roomCard {
   display: inline-block;
   width: 300px;
@@ -30,4 +44,7 @@ body {
 
 .ppm {
   text-align: center;
+  font-size: 18px;
+  margin: 0;
+  margin-top: 5px;
 }
