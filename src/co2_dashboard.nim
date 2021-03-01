@@ -13,6 +13,7 @@ type
   Room = ref object
     name*: string
     id*: string
+    plotUrl*: string
     concentration*: int
 
 proc update(room: Room) =
@@ -25,10 +26,10 @@ proc update(room: Room) =
               room.concentration = data[0]["content"].str.parseInt)
 
 var rooms = @[
-  Room(name: node[0].name, concentration: 0, id: node[0].id),
-  Room(name: node[1].name, concentration: 0, id: node[1].id),
-  Room(name: node[2].name, concentration: 0, id: node[2].id),
-  Room(name: node[3].name, concentration: 0, id: node[3].id)
+  Room(name: node[0].name, concentration: 0, id: node[0].id, plotUrl: "./demoplot.png"),
+  Room(name: node[1].name, concentration: 0, id: node[1].id, plotUrl: "./demoplot.png"),
+  Room(name: node[2].name, concentration: 0, id: node[2].id, plotUrl: "./demoplot.png"),
+  Room(name: node[3].name, concentration: 0, id: node[3].id, plotUrl: "./demoplot.png")
 ]
 
 func isGood(room: Room): bool =
@@ -38,9 +39,10 @@ func toHtml(room: Room): VNode =
   buildHtml(tdiv(class = "roomCard")):
     p(class = "roomName"): text room.name
     p(class = "isGood"):
-      if room.isGood: text "良好"
-      else: text "不良"
-    p(class = "ppm"): text $room.concentration & "ppm / 1000ppm"
+      if room.isGood: text "十分"
+      else: text "不十分"
+    p(class = "ppm"): text $room.concentration & "ppm"
+    img(src = room.plotUrl, class="plot")
 
 func makeHeader(): VNode =
   buildHtml(tdiv(class = "header")):
