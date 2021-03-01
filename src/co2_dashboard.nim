@@ -46,12 +46,19 @@ func makeHeader(): VNode =
   buildHtml(tdiv(class = "header")):
     p(class = "title"): text "換気状況測定中"
 
+func makeDescriptionBox(): VNode =
+  buildHtml(tdiv(class = "descriptionBox")):
+    p(class = "description"): text "外気は大体500ppmです．"
+    p(class = "description"): text "目安として1000ppmを超えると換気が十分でないと判断しています"
+    p(class = "description"): text "ppm は ここでは濃度のことです．parts per millionの略で，百万分率のことです．"
+
 proc createDom(): VNode =
   buildHtml(tdiv):
     makeHeader()
     tdiv:
       for room in rooms:
         room.toHtml
+    makeDescriptionBox()
 
 proc update(instance: KaraxInstance) =
   for room in rooms: room.update
