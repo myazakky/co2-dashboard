@@ -17,13 +17,24 @@ type
     concentration*: int
 
 proc update(room: Room) =
+  proc onRecieve(status: int, response: cstring) =
+    if status != 200: return
+
+    let datas = ($response).parseJson
+    var
+      getImage = false
+      getConc = false
+    for data in datas:
+      if (not getImage) and data["content"].str == "":
+        room.plotUrl = data["attachments"][0]["url"].str
+        getImage = true
+      if (not getConc) and data["content"].str != "":
+        room.concentration = data["content"].str.parseInt
+        getConc = true
+
   ajaxGet(url = (fmt"https://discordapp.com/api/channels/{room.id}/messages").cstring,
           headers = headers,
-          cont = proc (status: int, response: cstring) =
-              if status != 200: return
-              
-              let data = ($response).parseJson
-              room.concentration = data[0]["content"].str.parseInt)
+          cont = onRecieve)
 
 var rooms = @[
   Room(name: node[0].name, concentration: 0, id: node[0].id, plotUrl: "./demoplot.png"),
