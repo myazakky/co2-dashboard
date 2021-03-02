@@ -49,9 +49,10 @@ func isGood(room: Room): bool =
 func toHtml(room: Room): VNode =
   buildHtml(tdiv(class = "roomCard")):
     p(class = "roomName"): text room.name
-    p(class = "isGood"):
-      if room.isGood: text "十分"
-      else: text "不十分"
+    if room.isGood:
+      p(class = "isGood good"): text "良好"
+    else:
+      p(class = "isGood bad"): text "不良"
     p(class = "ppm"): text $room.concentration & "ppm"
     img(src = room.plotUrl, class="plot")
 

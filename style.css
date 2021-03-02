@@ -43,6 +43,28 @@ body {
   text-align: center;
 }
 
+.bad {
+  color: #ca5f5f;
+}
+
+.isGood::before{
+  font-family: "Font Awesome 5 Free";
+  padding-right: 0.25rem;
+  margin-right: 0.25rem;
+  margin-left: -2rem;
+  border-right: solid 1px #cfccc9;
+}
+
+.good::before {
+  content: "\f111";
+  color:#9deb9b;
+}
+
+.bad::before {
+  content: "\f057";
+  color:#ca5f5f;
+}
+
 .ppm {
   text-align: center;
   font-size: 18px;
