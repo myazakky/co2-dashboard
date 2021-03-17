@@ -95,3 +95,32 @@ body {
   margin: 0;
   padding: 0.3rem 0 0.5rem 1rem;
 }
+
+.members {
+  position: absolute;
+  width: 30%;
+  bottom: 0;
+  right: 0;
+}
+
+.pasokonClab {
+  display: inline-block;
+  width: 35%;
+  font-size: 20px;
+  margin: 0;
+}
+
+.sponsor {
+  display: inline-block;
+  width: 65%;
+}
+
+.logoText {
+  font-size: 30px;
+  margin: 0;
+}
+
+.airnormLogo {
+  display: inline-block;
+  width: 100%;
+}

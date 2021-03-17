@@ -73,6 +73,14 @@ proc createDom(): VNode =
       for room in rooms:
         room.toHtml
     makeDescriptionBox()
+    tdiv(class = "members"):
+      tdiv(class = "sponsor"):
+        p(class = "logoText"): text "協賛"
+        img(
+          class = "airnormLogo",
+          src = "./airnorm-logo.png"
+        )
+      p(class = "pasokonClab"): text "パソコン部作成"
 
 proc update(instance: KaraxInstance) =
   for room in rooms: room.update
