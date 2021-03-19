@@ -47,9 +47,9 @@ func toHtml(room: Room): VNode =
   buildHtml(tdiv(class = "roomCard")):
     p(class = "roomName"): text room.name
     if room.isGood:
-      p(class = "isGood good"): text "良好"
+      p(class = "isGood good"): text "いいね😆"
     else:
-      p(class = "isGood bad"): text "不良"
+      p(class = "isGood bad"): text "換気しよ😑"
     p(class = "ppm"): text $room.concentration & "ppm"
     img(src = room.plotUrl, class="plot")
 

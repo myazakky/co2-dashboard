@@ -39,8 +39,9 @@ body {
 .isGood {
   width: 100%;
   margin-bottom: 0px;
-  font-size: 50px;
+  font-size: 45px;
   text-align: center;
+  margin-left: 1rem;
 }
 
 .bad {
