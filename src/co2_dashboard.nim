@@ -66,18 +66,19 @@ func makeDescriptionBox(): VNode =
 proc createDom(): VNode =
   buildHtml(tdiv):
     makeHeader()
-    tdiv:
+    tdiv(class = "roomCards"):
       for room in rooms:
         room.toHtml
-    makeDescriptionBox()
-    tdiv(class = "members"):
-      tdiv(class = "sponsor"):
-        p(class = "logoText"): text "協賛"
-        img(
-          class = "airnormLogo",
-          src = "./airnorm-logo.png"
-        )
-      p(class = "pasokonClab"): text "パソコン部作成"
+    tdiv(class = "information"):
+      tdiv(class = "members"):
+        p(class = "pasokonClab"): text "パソコン部作成"
+        tdiv(class = "sponsor"):
+          p(class = "logoText"): text "協賛"
+          img(
+            class = "airnormLogo",
+            src = "./airnorm-logo.png"
+          )
+      makeDescriptionBox()
 
 proc update(instance: KaraxInstance) =
   for room in rooms: room.update

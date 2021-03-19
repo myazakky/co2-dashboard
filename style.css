@@ -20,6 +20,10 @@ body {
   margin: 0;
 }
 
+.roomCards{
+  text-align: center;
+}
+
 .roomCard {
   display: inline-block;
   margin: 30px;
@@ -82,38 +86,44 @@ body {
   border-top: solid 2px #ffffff;
 }
 
-.descriptionBox{
+.information {
   display: inline-block;
   position: absolute;
   bottom: 0;
+}
+
+.descriptionBox {
+  display: inline-block;
   padding: 10px;
   margin-left: 20px;
   border: solid 2px #cfccc9;
 }
 
-.description {
+.descriptionBox {
+  display: inline-block;
   font-size: 18px;
   margin: 0;
   padding: 0.3rem 0 0.5rem 1rem;
 }
 
 .members {
-  position: absolute;
-  width: 30%;
+  display: inline-block;
+  width: 40%;
   bottom: 0;
-  right: 0;
 }
 
 .pasokonClab {
   display: inline-block;
-  width: 35%;
-  font-size: 20px;
+  font-size: 35px;
   margin: 0;
+  margin-left: 30px;
+  margin-top: -300px;
 }
 
 .sponsor {
   display: inline-block;
-  width: 65%;
+  width: 30%;
+  margin-left: 30px;
 }
 
 .logoText {
