@@ -1,0 +1,8 @@
+let token = # Discord Bot Token
+
+type
+  RoomConf = ref object
+    name*: string
+    id*: string
+
+let nodes = []

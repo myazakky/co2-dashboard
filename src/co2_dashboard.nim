@@ -1,4 +1,4 @@
-import json, strformat, dom
+import json, strformat, sequtils, dom
 include karax/prelude
 import karax/kajax
 
@@ -36,12 +36,9 @@ proc update(room: Room) =
           headers = headers,
           cont = onRecieve)
 
-var rooms = @[
-  Room(name: node[0].name, concentration: 0, id: node[0].id, plotUrl: "./demoplot.png"),
-  Room(name: node[1].name, concentration: 0, id: node[1].id, plotUrl: "./demoplot.png"),
-  Room(name: node[2].name, concentration: 0, id: node[2].id, plotUrl: "./demoplot.png"),
-  Room(name: node[3].name, concentration: 0, id: node[3].id, plotUrl: "./demoplot.png")
-]
+var rooms = nodes.map(proc(node: RoomConf): Room =
+  Room(name: node.name, id: node.id, concentration: 0, plotUrl: "./demoplot.png"),
+)
 
 func isGood(room: Room): bool =
   room.concentration < 1000
